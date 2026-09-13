@@ -1,0 +1,26 @@
+<script>
+function launch() {
+  const url = document.getElementById("url").value;
+
+  const tab = window.open("about:blank", "_blank");
+
+  if (!tab) return;
+
+  tab.document.write(`
+    <!doctype html>
+    <html>
+      <body style="margin:0">
+        <iframe
+          src="${url}"
+          style="width:100vw;height:100vh;border:0">
+        </iframe>
+      </body>
+    </html>
+  `);
+
+  tab.document.close();
+}
+</script>
+
+<input id="url" placeholder="https://example.com">
+<button onclick="launch()">Launch</button>
